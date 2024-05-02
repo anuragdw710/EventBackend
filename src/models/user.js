@@ -16,14 +16,15 @@ const userSchema = new mongoose.Schema({
     pastBooking: [{
         eventId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Event'
+            ref: 'Event',
+            require: true
         },
-        seatsBooked: {
-            type: Number,
-            default: 0
+        seats: {
+            type: String,
+            require: true
         }
     }],
 }, { timestamps: true });
 
-const User = mongoose.model('Event', userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User;

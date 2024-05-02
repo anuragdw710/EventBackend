@@ -32,6 +32,15 @@ class EventRepository {
             throw error;
         }
     }
+    async updateBookedSeat(id, seatsBooked) {
+        try {
+            const event = await Event.findById(id);
+            event.seatsBooked = seatsBooked;
+            event.save();
+        } catch (error) {
+            throw error;
+        }
+    }
 
 
 }
